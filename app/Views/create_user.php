@@ -52,18 +52,5 @@
         </form>
     </div>
 
-
-    <!-- <form action="<?= base_url('/user/store') ?>" method="post">
-        <label>Nama :   </label>
-        <input type="text" name="nama"/>
-        <br><br>
-        <label>NPM  :   </label>
-        <input type="text" name="npm"/>
-        <br><br>
-        <label>Kelas    :   </label>
-        <input type="text" name="kelas"/>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form> -->
 </body>
 </html>
