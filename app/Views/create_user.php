@@ -22,18 +22,18 @@
         background-color: #fdfeff47;
         -webkit-backdrop-filter: blur(15px);
         backdrop-filter: blur(25px);"
-    >   
-        <?php $validation = \Config\Services::validation(); ?>
+    >      
+        <?php $nama_kelas = session()->getFlashdata('nama_kelas');  ?>
         <form action="<?= base_url('user/store') ?>" method="post">
             <h3 style="text-align:center;">Input your profile</h3>
             <div class="mb-3 row d-flex justify-content-center">
                 <label for="nama" class="col-sm-10 col-form-label">Nama</label>
                 <div class="col-sm-10">
                     <input name="nama" type="text" id="nama" 
-                    class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid':'' ?>"  
-                    value="<?= isset($old_nama)?$old_nama:'' ?>" >
+                    class="form-control <?= (empty(validation_show_error('nama'))) ? '':'is-invalid' ?>"  
+                    value="<?= old('nama') ?>" >
                     <div class="invalid-feedback">
-                        <?= $validation->getError('nama'); ?>
+                        <?= validation_show_error('nama') ?>
                     </div>
                 </div>
             </div>
@@ -41,10 +41,10 @@
                 <label for="npm" class="col-sm-10 col-form-label">NPM</label>
                 <div class="col-sm-10">
                     <input name="npm" type="text" id="npm"
-                     class="form-control <?= ($validation->hasError('npm'))?'is-invalid':'' ?>"  
-                     value="<?= isset($old_npm)?$old_npm:'' ?>" >
+                    class="form-control <?= (empty(validation_show_error('npm'))) ? '':'is-invalid' ?>"  
+                     value="<?= old('nama') ?>" >
                     <div class="invalid-feedback">
-                        <?= $validation->getError('npm'); ?>
+                        <?= validation_show_error('nama') ?>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,10 @@
                 <div class="col-sm-10">
                     <!-- <input name="kelas" type="text" class="form-control" id="kelas" rows=5 required> -->
                     <select name="kelas" id="kelas"  aria-label="Default select example"
-                    class="form-control <?= ($validation->hasError('kelas'))?'is-invalid':'' ?>">
-                        <option selected hidden value="<?= isset($old_kelas)?$old_kelas:'' ?>"><?= isset($old_nama_kelas)?$old_nama_kelas:'Pilih Kelas' ?></option>
+                    class="form-control <?= (empty(validation_show_error('kelas'))) ? '':'is-invalid' ?>">
+                        <option selected hidden value="<?= old('kelas') ?>">
+                            <?= ($nama_kelas=='')?'Pilih Kelas': $nama_kelas?>
+                        </option>
                         <?php
                             foreach ($kelas as $item){
                         ?>  
@@ -66,7 +68,7 @@
                         ?>
                     </select>
                     <div class="invalid-feedback">
-                        <?= $validation->getError('kelas'); ?>
+                        <?= validation_show_error('kelas') ?>
                     </div>
                 </div>
             </div>
