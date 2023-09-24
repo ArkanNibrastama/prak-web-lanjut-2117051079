@@ -6,32 +6,10 @@ use App\Controllers\BaseController;
 use App\Models\KelasModel;
 use App\Models\UserModel;
 
-global $kelas;
-$kelas = [
-
-    [
-        'id' => 1,
-        'nama_kelas' => 'A'
-    ],
-    [
-        'id' => 2,
-        'nama_kelas' => 'B'
-    ],
-    [
-        'id' => 3,
-        'nama_kelas' => 'C'
-    ],
-    [
-        'id' => 4,
-        'nama_kelas' => 'D'
-    ]
-
-];
-
 class UserController extends BaseController
 {
     
-    
+    protected $helpers=['form'];
     public function index()
     {
         //
@@ -51,7 +29,27 @@ class UserController extends BaseController
 
     public function create(){
 
-        global $kelas;
+        $kelas = [
+
+            [
+                'id' => 1,
+                'nama_kelas' => 'A'
+            ],
+            [
+                'id' => 2,
+                'nama_kelas' => 'B'
+            ],
+            [
+                'id' => 3,
+                'nama_kelas' => 'C'
+            ],
+            [
+                'id' => 4,
+                'nama_kelas' => 'D'
+            ]
+        
+        ];
+
         $data =[
             'kelas' => $kelas
         ];
@@ -79,16 +77,9 @@ class UserController extends BaseController
             'npm' => 'required|is_unique[user.npm]|integer|min_length[10]',
             'kelas' => 'required'
         ])){
-            global $kelas;
-            $data = [
-                'kelas' => $kelas,
-                'validation' => $this->validator,
-                'old_nama' => $this->request->getVar('nama'),
-                'old_npm' => $this->request->getVar('npm'),
-                'old_kelas' => $this->request->getVar('kelas'),
-                'old_nama_kelas' => $nama_kelas
-            ];
-            return view('create_user', $data);
+
+            session()->setFlashdata('nama_kelas');
+            return redirect()->back()->withInput()->with('nama_kelas', $nama_kelas);
         }
 
         // save data
