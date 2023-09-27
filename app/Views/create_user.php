@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-</head>
-<body style="background-image: url(<?= base_url('./assets/img/bg.png') ?>)">
 
-    <div class="row alignment-items-center" 
+    <?= $this->extend('layouts/app'); ?>
+
+    <?= $this->section('content') ?>
+    <div class="container alignment-items-center" 
         style="position:absolute; 
-        background-color:white;
         width:60%;
         left:50%;
         top:45%;
-        transform:translate(-50%, -45%);
-        border-radius:15px;
-        padding:25px;
-        padding-bottom: 35px;
-        color: white;
-        background-color: #fdfeff47;
-        -webkit-backdrop-filter: blur(15px);
-        backdrop-filter: blur(25px);"
+        transform:translate(-50%, -45%);"
     >      
         <?php $nama_kelas = session()->getFlashdata('nama_kelas');  ?>
         <form action="<?= base_url('user/store') ?>" method="post">
@@ -42,9 +28,9 @@
                 <div class="col-sm-10">
                     <input name="npm" type="text" id="npm"
                     class="form-control <?= (empty(validation_show_error('npm'))) ? '':'is-invalid' ?>"  
-                     value="<?= old('nama') ?>" >
+                     value="<?= old('npm') ?>" >
                     <div class="invalid-feedback">
-                        <?= validation_show_error('nama') ?>
+                        <?= validation_show_error('npm') ?>
                     </div>
                 </div>
             </div>
@@ -80,6 +66,4 @@
 
         </form>
     </div>
-
-</body>
-</html>
+    <?= $this->endSection() ?>
