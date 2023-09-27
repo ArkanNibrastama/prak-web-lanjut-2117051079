@@ -9,10 +9,23 @@ use App\Models\UserModel;
 class UserController extends BaseController
 {
     
+    public $userModel;
+    public $kelasModel;
     protected $helpers=['form'];
+
+    public function __construct(){
+        $this->userModel = new UserModel();
+        $this->kelasModel = new KelasModel();
+    }
+
     public function index()
     {
-        //
+        $data=[
+            'title' => 'List User',
+            'users' => $this->userModel->getUser()
+        ];
+
+        return view('list_user', $data);
     }
 
     public function profile($nama="", $kelas="", $npm=""){
@@ -20,7 +33,7 @@ class UserController extends BaseController
         $data = [
             'nama' => $nama,
             'kelas' => $kelas,
-            'npm' => $npm
+            'npm' => $npm,
         ];
 
         return view('profile', $data);
@@ -29,30 +42,13 @@ class UserController extends BaseController
 
     public function create(){
 
-        $kelas = [
-
-            [
-                'id' => 1,
-                'nama_kelas' => 'A'
-            ],
-            [
-                'id' => 2,
-                'nama_kelas' => 'B'
-            ],
-            [
-                'id' => 3,
-                'nama_kelas' => 'C'
-            ],
-            [
-                'id' => 4,
-                'nama_kelas' => 'D'
-            ]
-        
-        ];
+        $kelas = $this->kelasModel->getKelas();
 
         $data =[
+            'title' => 'Create User',
             'kelas' => $kelas
         ];
+
 
         return view('create_user', $data);
     }
@@ -61,15 +57,12 @@ class UserController extends BaseController
 
         
         // get nama kelas based on selected id kelas
-        $kelasModel = new KelasModel();
         if($this->request->getVar('kelas') != ''){
-            $kelas_select = $kelasModel->where('id', $this->request->getVar('kelas'))->first();
+            $kelas_select = $this->kelasModel->where('id', $this->request->getVar('kelas'))->first();
             $nama_kelas = $kelas_select['nama_kelas'];
         }else{
             $nama_kelas = '';
         }
-
-        $userModel = new UserModel();
 
         // validation
         if(!$this->validate([
@@ -83,18 +76,21 @@ class UserController extends BaseController
         }
 
         // save data
-        $userModel->saveUser([
+        $this->userModel->saveUser([
             'nama' => $this->request->getVar('nama'),
             'npm' => $this->request->getVar('npm'),
             'id_kelas' => $this->request->getVar('kelas'),
         ]);
+
+        return redirect()->to('/user');
         
         // show to profile page...
-        $showed_data = [
-            'nama' => $this->request->getVar('nama'),
-            'npm' => $this->request->getVar('npm'),
-            'kelas' => $nama_kelas,
-        ];
-        return view('profile', $showed_data);
+        // $showed_data = [
+        //     'nama' => $this->request->getVar('nama'),
+        //     'npm' => $this->request->getVar('npm'),
+        //     'kelas' => $nama_kelas,
+        //     'title' => 'Profile'
+        // ];
+        // return view('profile', $showed_data);
     }
 }
