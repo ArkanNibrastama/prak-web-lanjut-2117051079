@@ -131,10 +131,30 @@ nav li a:hover{
 
 img{
 
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
+.foto_profile{
+
     width: 150px;
     height: 150px;
     object-fit: cover;
     object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
+.foto_placeholder{
+
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: -15px -5px;
     border-radius: 50%;
 
 }
