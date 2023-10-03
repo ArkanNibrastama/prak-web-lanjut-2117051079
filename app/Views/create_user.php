@@ -10,8 +10,18 @@
         transform:translate(-50%, -45%);"
     >      
         <?php $nama_kelas = session()->getFlashdata('nama_kelas');  ?>
-        <form action="<?= base_url('user/store') ?>" method="post">
+        <form action="<?= base_url('user/store') ?>" method="post" enctype="multipart/form-data">
             <h3 style="text-align:center;">Input your profile</h3>
+            <div class="mb-3 row d-flex justify-content-center">
+                <label for="foto" class="col-sm-10 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <input class="form-control <?= (empty(validation_show_error('foto'))) ? '':'is-invalid' ?>" 
+                    type="file" id="foto" name='foto'>
+                    <div class="invalid-feedback">
+                        <?= validation_show_error('foto') ?>
+                    </div>
+                </div>
+            </div>
             <div class="mb-3 row d-flex justify-content-center">
                 <label for="nama" class="col-sm-10 col-form-label">Nama</label>
                 <div class="col-sm-10">

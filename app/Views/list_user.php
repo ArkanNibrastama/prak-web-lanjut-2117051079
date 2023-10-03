@@ -4,7 +4,7 @@
 
     <div class="container-header">
         <h1>List Data Users</h1>
-        <button type="button" class="btn btn-primary">Add Data</button>
+        <a class="btn btn-primary" href="<?= base_url('/user/create') ?>">Add Data</a>
     </div>
     <div class="container" 
     style="
@@ -31,11 +31,12 @@
                     foreach($users as $user){
                 ?>
                     <tr>
-                        <td class="col justify-content-center text-center"><?= $user['id'] ?></td>
-                        <td class="col justify-content-center"><?= $user['nama'] ?></td>
-                        <td class="col justify-content-center text-center"><?= $user['npm'] ?></td>
-                        <td class="col justify-content-center text-center"><?= $user['nama_kelas'] ?></td>
-                        <td class="col justify-content-center text-center">
+                        <td class="col justify-content-center align-middle text-center"><?= $user['id'] ?></td>
+                        <td class="col justify-content-center align-middle"><?= $user['nama'] ?></td>
+                        <td class="col justify-content-center align-middle text-center"><?= $user['npm'] ?></td>
+                        <td class="col justify-content-center align-middle text-center"><?= $user['nama_kelas'] ?></td>
+                        <td class="col justify-content-center align-middle text-center">
+                            <a class="btn btn-success" href="<?= base_url('user/'.$user['id']) ?>">Detail</a>
                             <button type="button" class="btn btn-warning">Edit</button>
                             <button type="button" class="btn btn-danger">Hapus</button>
                         </td>
