@@ -9,7 +9,7 @@
     <div class="container" 
     style="
     margin-top: 25px; 
-    width: 70%;
+    width: 68%;
     height: 500px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -37,8 +37,12 @@
                         <td class="col justify-content-center align-middle text-center"><?= $user['nama_kelas'] ?></td>
                         <td class="col justify-content-center align-middle text-center">
                             <a class="btn btn-success" href="<?= base_url('user/'.$user['id']) ?>">Detail</a>
-                            <button type="button" class="btn btn-warning">Edit</button>
-                            <button type="button" class="btn btn-danger">Hapus</button>
+                            <a class="btn btn-warning" href="<?= base_url('user/'.$user['id'].'/edit') ?>">Edit</a>
+                            <form action="<?= base_url('user/'.$user['id']) ?>" method="post" style="display: inline-block;">
+                                <input type="hidden" name='_method' value="DELETE">
+                                <?= csrf_field() ?>
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                 <?php

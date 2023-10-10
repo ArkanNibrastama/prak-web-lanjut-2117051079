@@ -117,4 +117,86 @@ class UserController extends BaseController
             return view('profile', $data);
 
     }
+
+    public function edit($id){
+
+        $user = $this->userModel->getUser($id);
+        $kelas = $this->kelasModel->getKelas();
+
+        $data = [
+            'title' => 'Edit User',
+            'user' => $user,
+            'kelas' => $kelas
+        ];
+
+        return view('edit_user', $data);
+
+    }
+
+    public function update($id){
+
+        // get nama kelas based on selected id kelas
+        if($this->request->getVar('kelas') != ''){
+            $kelas_select = $this->kelasModel->where('id', $this->request->getVar('kelas'))->first();
+            $nama_kelas = $kelas_select['nama_kelas'];
+        }else{
+            $nama_kelas = '';
+        }
+
+        $path = 'assets/uploads/img/';
+        $foto = $this->request->getFile('foto');
+
+        // validation
+        // if(!$this->validate([
+        //     'nama' => 'required|alpha_space',
+        //     'npm' => 'required|is_unique[user.npm]|integer|min_length[10]',
+        //     'kelas' => 'required',
+        //     'foto' => 'uploaded[foto]|is_image[foto]'
+        // ])){
+
+        //     session()->setFlashdata('nama_kelas');
+        //     return redirect()->back()->withInput()->with('nama_kelas', $nama_kelas);
+        // }
+
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'npm' => $this->request->getVar('npm'),
+            'kelas' => $this->request->getVar('kelas'),
+        ];
+
+        if ($foto->isValid()){
+            $nama_foto = $foto->getRandomName();
+            //up img
+
+            if($foto->move($path, $nama_foto)){
+                $foto = base_url($path.$nama_foto);
+
+                $data['foto'] = $foto;
+
+            }
+        }
+
+        $result = $this->userModel->updateUser($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+            ->with('error', 'Gagal Menyimpan Data!');
+        }
+
+        return redirect()->to('/user');
+
+    }
+
+    public function destroy($id){
+
+        $result = $this->userModel->deleteUser($id);
+
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal menghapus data');
+        }
+
+        return redirect()->to(base_url('/user'))->with('success', 'Berhasil menghapus data');
+
+    }
+     
 }

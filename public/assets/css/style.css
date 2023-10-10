@@ -149,6 +149,16 @@ img{
 
 }
 
+.edit_photo{
+
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
 .foto_placeholder{
 
     width: 150px;
