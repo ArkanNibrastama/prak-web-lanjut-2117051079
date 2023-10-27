@@ -12,16 +12,20 @@ class KelasSeeder extends Seeder
         $kelasModel = new KelasModel();
 
         $kelasModel->save([
-            'nama_kelas' => 'A'
+            'nama_kelas' => 'A',
+            'kapasitas'=> 10,
         ]);
         $kelasModel->save([
-            'nama_kelas' => 'B'
+            'nama_kelas' => 'B',
+            'kapasitas'=> 10,
         ]);
         $kelasModel->save([
-            'nama_kelas' => 'C'
+            'nama_kelas' => 'C',
+            'kapasitas'=> 10,
         ]);
         $kelasModel->save([
-            'nama_kelas' => 'D'
+            'nama_kelas' => 'D',
+            'kapasitas'=> 10,
         ]);
     }
 }

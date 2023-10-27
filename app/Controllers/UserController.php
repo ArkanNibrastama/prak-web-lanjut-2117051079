@@ -90,7 +90,7 @@ class UserController extends BaseController
             'nama' => $this->request->getVar('nama'),
             'npm' => $this->request->getVar('npm'),
             'id_kelas' => $this->request->getVar('kelas'),
-            'foto' => $foto
+            'foto' => $foto 
         ]);
 
         return redirect()->to('/user');
