@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans');
+
+body{
+
+    background-color: #323232;
+
+
+}
+
+
+
+h1{
+    color: #ffffff;
+}
+
+
+.arkan{
+
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-right: -5px;
+    margin-left: 5px;
+
+}
+
+
+.content{
+
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 25px;
+    
+    background-color:white;
+    color: black;
+    background-color: #fdfeff47;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.container{
+    background-color:white;
+    border-radius:15px;
+    padding:25px;
+    padding-bottom: 35px;
+    color: white;
+    background-color: #fdfeff47;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
+} 
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+
+img{
+
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
+.foto_profile{
+
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
+.photo_sidebar{
+
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    object-position: 0 -5px;
+    border-radius: 50%;
+
+}
+
+.edit_photo{
+
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: 0 -8px;
+    border-radius: 50%;
+
+}
+
+.foto_placeholder{
+
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: -15px -5px;
+    border-radius: 50%;
+
+}
+
+.content h3{
+
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-family: 'Montserrat';
+
+}
+
+.content h1{
+
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 600;
+
+}
+
+.content p{
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.container-header{
+    color:white; 
+    margin-left:60px;
+}
