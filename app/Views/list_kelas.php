@@ -9,7 +9,7 @@
     <div class="container" 
     style="
     margin-top: 25px; 
-    width: 68%;
+    width: 90%;
     height: 500px;
     padding-top: 50px;
     padding-bottom: 50px;

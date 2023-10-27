@@ -9,34 +9,12 @@ body{
 
 }
 
-nav{
 
-    /* position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 3; */
-    width: 80%;
-    margin: 0 auto;
-    /* margin-top: 30px; */
-    padding: 25px 50px;
-    border-radius: 30px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    /* background-color: burlywood; */
-
+h1{
+    color: #ffffff;
 }
 
-nav h2{
-
-    font-size: 20px;
-    font-family: 'Plus Jakarta Sans';
-    font-weight: 500;
-    color: #FFBA15  ;
-
-}
 
 .arkan{
 
@@ -48,41 +26,20 @@ nav h2{
 
 }
 
-nav li{
-
-    display: inline-block;
-    margin-left: 25px;
-
-}
-
-nav li a{
-
-    text-decoration: none;
-    color: #FFBA15;
-    font-size: 18px;
-    font-family: 'Montserrat';
-    font-weight: 500;
-    transition: all 0.15s ease-in-out;
-
-}
-
-nav li a:hover{
-
-    font-size: 19px;
-    color: whitesmoke;
-    transition: all 0.15s ease-in-out;
-
-}
 
 .content{
 
-    width: 55%;
+    width: 80%;
     height: 100%;
     margin: 0 auto;
     padding: 50px;
     border-radius: 25px;
-    margin-top: 90px;
-    background-color: beige;
+    
+    background-color:white;
+    color: black;
+    background-color: #fdfeff47;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
 
     display: flex;
     flex-direction: column;
@@ -149,6 +106,16 @@ img{
 
 }
 
+.photo_sidebar{
+
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    object-position: 0 -5px;
+    border-radius: 50%;
+
+}
+
 .edit_photo{
 
     width: 120px;
@@ -192,11 +159,11 @@ img{
     margin-bottom: 5px;
     font-family: 'Montserrat';
     font-weight: 600;
+    font-size: 18px;
 
 }
 
 .container-header{
     color:white; 
-    margin-left:250px;
-    margin-top: 30px;
+    margin-left:60px;
 }

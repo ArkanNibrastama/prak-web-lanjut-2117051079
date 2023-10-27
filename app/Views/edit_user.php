@@ -3,11 +3,11 @@
 
 <?= $this->section('content') ?>
 <div class="container alignment-items-center" 
-    style="position:absolute; 
-    width:60%;
-    left:50%;
-    top:45%;
-    transform:translate(-50%, -45%);"
+    style="
+        width: 90%;
+        height: 100%;
+        padding-top: 50px;
+        "
 >      
     <?php $nama_kelas = session()->getFlashdata('nama_kelas');  ?>
     <form action="<?= base_url('/user/'.$user['id']) ?>" method="post" enctype="multipart/form-data">
@@ -15,7 +15,7 @@
         <input type="hidden" name="_method" value="PUT">
         <?= csrf_field() ?>
 
-        <h3 style="text-align:center;">Edit your profile</h3>
+        <h3 style="text-align:center;color:white; font-size:32px;">Edit Data User</h3>
         <div class="mb-3 d-flex justify-content-center">
             <img class="edit_photo" src="<?= $user['foto'] ?? base_url('/assets/img/placeholder-image.jpg') ?>" alt="">
         </div>
