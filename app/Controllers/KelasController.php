@@ -21,6 +21,7 @@ class KelasController extends BaseController
         $data = [
             'title' => 'List Kelas',
             'kelas' => $this->kelasModel->getKelas(),
+            'page' =>'kelas',
         ];
 
         return view('list_kelas',$data);
@@ -31,6 +32,7 @@ class KelasController extends BaseController
 
         $data =[
             'title' => 'Create Kelas',
+            'page' =>'kelas',
         ];
 
 
@@ -64,7 +66,8 @@ class KelasController extends BaseController
 
         $data = [
             'title' => 'Edit Kelas',
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'page' =>'kelas',
         ];
 
         return view('edit_kelas', $data);

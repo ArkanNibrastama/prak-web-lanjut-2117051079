@@ -3,18 +3,18 @@
 
 <?= $this->section('content') ?>
 <div class="container alignment-items-center" 
-    style="position:absolute; 
-    width:60%;
-    left:50%;
-    top:45%;
-    transform:translate(-50%, -45%);"
+style="
+        width: 90%;
+        height: 100%;
+        padding-top: 50px;
+        "
 >      
     <form action="<?= base_url('/kelas/'.$kelas['id']) ?>" method="post" enctype="multipart/form-data">
 
         <input type="hidden" name="_method" value="PUT">
         <?= csrf_field() ?>
 
-        <h3 style="text-align:center;">Edit Data Kelas</h3>
+        <h3 style="text-align:center;color:white; font-size:32px;">Edit Data Kelas</h3>
         <div class="mb-3 row d-flex justify-content-center">
             <label for="nama_kelas" class="col-sm-10 col-form-label">Nama Kelas</label>
             <div class="col-sm-10">

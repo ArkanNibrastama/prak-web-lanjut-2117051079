@@ -3,15 +3,15 @@
 
     <?= $this->section('content') ?>
     <div class="container alignment-items-center" 
-        style="position:absolute; 
-        width:60%;
-        left:50%;
-        top:45%;
-        transform:translate(-50%, -45%);"
+        style="
+        width: 90%;
+        height: 100%;
+        padding-top: 50px;
+        "
     >      
         <?php $nama_kelas = session()->getFlashdata('nama_kelas');  ?>
         <form action="<?= base_url('user/store') ?>" method="post" enctype="multipart/form-data">
-            <h3 style="text-align:center;">Input your profile</h3>
+            <h3 style="text-align:center; color:white; font-size:32px;">Input Data User</h3>
             <div class="mb-3 row d-flex justify-content-center">
                 <label for="foto" class="col-sm-10 col-form-label">Foto</label>
                 <div class="col-sm-10">

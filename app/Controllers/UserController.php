@@ -22,6 +22,7 @@ class UserController extends BaseController
     {
         $data=[
             'title' => 'List User',
+            'page' =>'user',
             'users' => $this->userModel->getUser()
         ];
 
@@ -34,6 +35,7 @@ class UserController extends BaseController
             'nama' => $nama,
             'kelas' => $kelas,
             'npm' => $npm,
+            'page' =>'user',
         ];
 
         return view('profile', $data);
@@ -46,7 +48,8 @@ class UserController extends BaseController
 
         $data =[
             'title' => 'Create User',
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'page' =>'user',
         ];
 
 
@@ -111,7 +114,8 @@ class UserController extends BaseController
 
             $data = [
                 'title' => 'Profile',
-                'user' => $user
+                'user' => $user,
+                'page' =>'user',
             ];
 
             return view('profile', $data);
@@ -126,7 +130,8 @@ class UserController extends BaseController
         $data = [
             'title' => 'Edit User',
             'user' => $user,
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'page' =>'user',
         ];
 
         return view('edit_user', $data);
